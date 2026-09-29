@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <a href="/crear">➕ Nueva tarea</a>
+    <hr>
+    <ul>
+        {% for tarea in tareas %}
+        <li>
+            <strong>{{ tarea.titulo }}</strong> - {{ tarea.descripcion }}
+            {% if tarea.completada %}✅{% else %}⏳{% endif %}
+            | <a href="/editar/{{ tarea.id }}">Editar</a>
+            | <a href="/eliminar/{{ tarea.id }}">Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
