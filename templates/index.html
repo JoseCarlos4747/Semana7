@@ -2,21 +2,35 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de Tareas</title>
+    <title>Gestión de Productos</title>
 </head>
 <body>
-    <h1>Lista de Tareas</h1>
-    <a href="/crear">➕ Nueva tarea</a>
+    <h1>Lista de Productos</h1>
+    <a href="/crear">➕ Nuevo producto</a>
     <hr>
     <ul>
         {% for tarea in tareas %}
         <li>
             <strong>{{ tarea.titulo }}</strong> - {{ tarea.descripcion }}
             {% if tarea.completada %}✅{% else %}⏳{% endif %}
-            | <a href="/editar/{{ tarea.id }}">Editar</a>
+            | <a href="/editar/{{ tarea.id }}"><strong>Editar</strong></a>
             | <a href="/eliminar/{{ tarea.id }}">Eliminar</a>
         </li>
         {% endfor %}
     </ul>
+    <style>
+        h1{
+            font-family: system-ui;
+            color: Orange;
+            text-align: center;
+          }
+        strong{
+            color: blue;
+        }
+        a{
+            font-family: system-ui;
+            color: red;
+        }
+    </style>
 </body>
 </html>
